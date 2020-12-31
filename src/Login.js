@@ -2,12 +2,17 @@ import React ,{useState}from 'react'
 import {Link,useHistory} from 'react-router-dom';
 import "./login.css"
 import {auth} from './firebase';
+
 function Login() {
             const [email,setEmail] =useState('');
+
             const [password, setPassword]=useState('');
+
             const history=useHistory();
+
     const signin=(e)=>{
         e.preventDefault();
+
         auth.signInWithEmailAndPassword(email,password)
         .then((auth)=>{
             // redirect to ligin page
@@ -18,10 +23,11 @@ function Login() {
 
     const create =(e)=>{
         e.preventDefault();
+        
         auth.createUserWithEmailAndPassword(email,password)
-        .then(()=>{
+        .then((auth)=>{
             history.push("/");
-            
+
         }).catch((err)=>alert('user already register'));
     };
 

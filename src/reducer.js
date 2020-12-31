@@ -1,23 +1,17 @@
 export const initialState={
-    basket:[{
-        id:128323,
-       title:"New Apple iphone 12 Pro (128GB)-Graphite Colour",
-       price:119900,
-       rating:5,
-        image:"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-pro-max-1.jpg"
-    },{
-        id:128323,
-        title:"New Apple iphone 12 Pro (128GB)-Graphite Colour",
-        price:119900,
-        rating:5,
-         image:"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-pro-max-1.jpg"
-    }],
+    basket:[],
     user:null
 };
 
 export const reducer =((state,action)=>{
     console.log(action);
     switch(action.type){
+        case "SET_USER":
+            return {
+                ...state,
+                user: action.user
+            }
+        
         case 'ADD_TO_BASKET':
             return {
                 ...state,
